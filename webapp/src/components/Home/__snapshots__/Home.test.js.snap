@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> render <Home /> component as expected 1`] = `
+<Grid
+  className="content"
+  fluid={true}
+>
+  <div>
+    Tech: 
+    react
+  </div>
+</Grid>
+`;
