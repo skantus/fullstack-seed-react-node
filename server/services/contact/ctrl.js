@@ -17,16 +17,20 @@ exports.getAll = function(req, res) {
 };
 
 exports.create = function(req, res) {
-  var contact = new Contact();
+  const contact = new Contact();
+
   contact.name = req.body.name ? req.body.name : contact.name;
   contact.email = req.body.email;
 
   contact.save(function(err) {
-    if (err) res.json(err);
+    if (err) {
+      res.json(err);
+      return;
+    }
 
     res.json({
       message: "New contact created!",
-      data: contact
+      status: 200
     });
   });
 };
@@ -60,7 +64,7 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  Contact.remove(
+  Contact.deleteOne(
     {
       _id: req.params.id
     },
