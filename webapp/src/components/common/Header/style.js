@@ -16,3 +16,15 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
+export const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${props => (props.primary ? 'tomato' : 'white')};
+  color: ${props => (props.primary ? 'white' : 'tomato')};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid tomato;
+  border-radius: 3px;
+`;

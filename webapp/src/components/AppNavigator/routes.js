@@ -8,11 +8,13 @@ export const signOutRoutes = {
   routes: [
     {
       path: '/login',
-      component: Login
+      component: Login,
+      title: 'Sign In'
     },
     {
       path: '/public',
-      component: Public
+      component: Public,
+      title: 'Public'
     }
   ],
   initialRoute: Login
@@ -20,7 +22,6 @@ export const signOutRoutes = {
 
 export const signInRoutes = {
   routes: [
-    ...signOutRoutes.routes,
     {
       path: '/home',
       component: Home

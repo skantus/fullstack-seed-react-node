@@ -1,0 +1,19 @@
+.tableStyle {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 300px;
+  margin: 20px;
+}
+
+.tableStyle td,
+.tableStyle th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tableStyle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: gray;
+}

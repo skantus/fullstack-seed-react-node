@@ -1,18 +1,25 @@
 import React from 'react';
+import { bool, func } from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Wrapper } from './style';
+import { LogoutUser } from 'store/actions';
+import { Wrapper, Button } from './style';
 
 /* eslint-disable react/prop-types */
-export const Header = ({ children, routes = [] }) => (
+const Header = ({ children, routes = [], isLogged, logoutUser }) => (
   <Wrapper>
     <section>
       <nav>
         <ul>
-          {routes.map(({ path, title }, index) => (
-            <li key={index}>
-              <Link to={path}>{path.replace('/', '')}</Link>
-            </li>
-          ))}
+          {routes.map(
+            ({ path, title }, index) =>
+              title && (
+                <li key={index}>
+                  <Link to={path}>{title}</Link>
+                </li>
+              )
+          )}
+          {isLogged && <Button onClick={() => logoutUser()}>Logout</Button>}
         </ul>
       </nav>
       <hr />
@@ -20,3 +27,21 @@ export const Header = ({ children, routes = [] }) => (
     </section>
   </Wrapper>
 );
+
+Header.propTypes = {
+  isLogged: bool.isRequired,
+  logoutUser: func.isRequired
+};
+
+const mapDispatchToProps = {
+  logoutUser: LogoutUser
+};
+
+const mapStateToProps = ({ session: { isLogged } }) => ({
+  isLogged
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
