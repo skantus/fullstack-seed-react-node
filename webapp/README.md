@@ -8,10 +8,6 @@
 - React Flexbox Grid
 - React Router Dom
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/skantus/react-redux-seed/master/src/assets/animated.gif" width="800"/>
-</p>
-
 ## how to start the project 🔨
 
 - Use `npm install` to install the dependencies.
